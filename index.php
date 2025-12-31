@@ -1,48 +1,36 @@
-<html>
-
-<head>
-<title>Exemplo PHP</title>
-</head>
-<body>
-
 <?php
 ini_set("display_errors", 1);
-header('Content-Type: text/html; charset=iso-8859-1');
 
-
-
-echo 'Versao Atual do PHP: ' . phpversion() . '<br>';
-
-$servername = "54.234.153.24";
+$servername = "mysql";
 $username = "root";
-$password = "Senha123";
-$database = "meubanco";
+$password = "root";
+$database = "supermercado";
 
-// Criar conexão
+$conn = new mysqli($servername, $username, $password, $database);
 
-
-$link = new mysqli($servername, $username, $password, $database);
-
-/* check connection */
-if (mysqli_connect_errno()) {
-    printf("Connect failed: %s\n", mysqli_connect_error());
-    exit();
+if ($conn->connect_error) {
+    die("Erro de conexão: " . $conn->connect_error);
 }
 
-$valor_rand1 =  rand(1, 999);
-$valor_rand2 = strtoupper(substr(bin2hex(random_bytes(4)), 1));
-$host_name = gethostname();
+$produtos = ["Arroz", "Feijão", "Macarrão", "Açúcar", "Café"];
+$produto = $produtos[array_rand($produtos)];
+$quantidade = rand(1, 5);
+$valor = rand(5, 50);
+$caixa = "Caixa-" . rand(1, 3);
+$host = gethostname();
 
+$sql = "INSERT INTO vendas (produto, quantidade, valor, caixa, host)
+        VALUES ('$produto', $quantidade, $valor, '$caixa', '$host')";
 
-$query = "INSERT INTO dados (AlunoID, Nome, Sobrenome, Endereco, Cidade, Host) VALUES ('$valor_rand1' , '$valor_rand2', '$valor_rand2', '$valor_rand2', '$valor_rand2','$host_name')";
+$conn->query($sql);
 
+echo "<h2>Venda registrada com sucesso</h2>";
+echo "<p><strong>Produto:</strong> $produto</p>";
+echo "<p><strong>Quantidade:</strong> $quantidade</p>";
+echo "<p><strong>Valor:</strong> R$ $valor</p>";
+echo "<p><strong>Caixa:</strong> $caixa</p>";
+echo "<p><strong>Atendido pela instância:</strong> $host</p>";
 
-if ($link->query($query) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $link->error;
-}
-
+$conn->close();
 ?>
-</body>
-</html>
+
