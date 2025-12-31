@@ -1,4 +1,32 @@
+# 🐳 Projeto Docker – Microsserviços (Supermercado Toshiro)
+
+Este projeto é uma adaptação do laboratório **Docker: Utilização Prática no Cenário de Microsserviços** da Digital Innovation One (DIO).
+
+O objetivo é demonstrar, de forma prática, o uso do **Docker e Docker Compose** para executar uma aplicação simples baseada em microsserviços, simulando um sistema básico de um supermercado.
+
+
 Docker: Utilização prática no cenário de Microsserviços
+
 Denilson Bonatti, Instrutor - Digital Innovation One
 
-Muito se tem falado de containers e consequentemente do Docker no ambiente de desenvolvimento. Mas qual a real função de um container no cenários de microsserviços? Qual a real função e quais exemplos práticos podem ser aplicados no dia a dia? Essas são algumas das questões que serão abordadas de forma prática pelo Expert Instructor Denilson Bonatti nesta Live Coding. IMPORTANTE: Agora nossas Live Codings acontecerão no canal oficial da dio._ no YouTube. Então, já corre lá e ative o lembrete! Pré-requisitos: Conhecimentos básicos em Linux, Docker e AWS.
+---
+
+## 🔧 Alterações realizadas neste fork
+
+- Alteração da **estrutura da tabela do banco de dados**, adaptando para o contexto de supermercado  
+- Ajustes no arquivo **PHP**, refletindo as mudanças feitas na tabela  
+- Utilização do **Docker Compose** para orquestrar a aplicação e o banco de dados  
+
+As mudanças foram feitas com foco em aprendizado prático e compreensão do funcionamento de microsserviços com Docker.
+
+---
+
+## 🚀 Tecnologias utilizadas
+
+- Docker  
+- Docker Compose  
+- PHP  
+- MySQL  
+- Linux  
+
+---
